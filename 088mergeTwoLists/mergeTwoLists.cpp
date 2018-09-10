@@ -21,7 +21,6 @@ public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
         ListNode *result = NULL, *result_tail = NULL;
         while(1){
-
             if (l1 == NULL ) {
                 if (l2 == NULL) return result;
                 else{
@@ -100,7 +99,28 @@ public:
     }
 };
 
+/*
+*** following is the perfect code of recursion.
+*** use recursion to make every small element at front;
+**/
 
+class Solution_reallygood {
+public:
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        if(l1==NULL || l2==NULL) return (l1==NULL ? l2: l1);
+        if(l1->val<l2->val)
+        {
+            l1->next=mergeTwoLists(l1->next, l2);
+            return l1;
+        }
+        else
+        {
+            l2->next=mergeTwoLists(l1,l2->next);
+            return l2;
+        }
+
+    }//end function
+};//end class
 
 int main(){
     ListNode a(1), b(2), c(4), x(2), y(3), z(4);
