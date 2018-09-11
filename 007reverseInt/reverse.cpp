@@ -4,6 +4,12 @@
 
 using namespace std;
 
+static int x = []() {
+     std::ios::sync_with_stdio(false);
+     cin.tie(NULL);
+     return 0;
+}();
+
 bool compare_digit(int * a, int * c, int i, int n){
     //i start with 0 for the first call
 
